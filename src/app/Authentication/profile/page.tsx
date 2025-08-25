@@ -5,11 +5,12 @@ import React, { useEffect, useState } from "react";
 
 export default function Profile(){
 
-
+    
     
     const [user , setUser] =  useState<{name:string ; email: string} | null> (null);
 
     useEffect(() => {
+        
 
       const storedUser  = localStorage.getItem("user")
       if (storedUser){
@@ -19,14 +20,16 @@ export default function Profile(){
       }
     }, []);
 
+   
     if(!user){
         <p>user Not found Please Sign up first</p>
     }
-
+  
 
     return(
 
 
+    
 
         <div className="flex flex-col relative pt-10 items-center w-full min-h-screen bg-cyan-200">
             <Link className="absolute left-5 text-blue-700" href="/">Go Home</Link>
