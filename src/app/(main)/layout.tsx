@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="bg-blue-400">
+    <div className="bg-blue-200">
       
       <Header />
       <Navbar />
