@@ -13,18 +13,16 @@ export default function RootLayout({ children }: Props) {
   return (
 
 
-    <html lang="fa">
-      <body>
+  <html lang="fa">
+       <body>
 
-       <div>
-
+           <div>
      
+          <main>{children}</main>
       
-      <main>{children}</main>
-      
-    </div>
+          </div>
         
-       </body>
-    </html>
+      </body>
+  </html>
   );
 }

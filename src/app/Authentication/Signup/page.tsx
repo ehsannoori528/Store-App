@@ -18,9 +18,7 @@ export default function SignUpPage() {
             e.preventDefault();
             
            }
-         
-
-
+           
            //transfer to local Storage
            const userData = {name , email};
 
