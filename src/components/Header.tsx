@@ -22,8 +22,7 @@ const handleClick = () => {
       <div className='relative flex justify-center flex-1 mx-6 py-1 '>
       <span className='absolute left-1 top-3 text-white text-2xl font-bold'>ALMAS</span>
     
-      <input className=' bg-white border relative mt-2 w-[500px] h-8 pl-2 rounded-md flex ' type="text"  placeholder='Search...' />
-      <Search className="absolute right-78  top-1/2 -translate-y-1/2 text-gray-500 cursor-pointer" />
+      <input className=' bg-white border relative mt-2 w-[500px] h-8 pl-2 rounded-md hidden md:flex' type="text"  placeholder='Search...' />
        
       <Link href="/Authentication/Signup" className="text-blue-300 hover:underline text-sm absolute right-23 mt-2 p-1">Sign up</Link>
       <button onClick={handleClick} className='bg-green-600 cursor-pointer absolute mt-2 right-1 justify-center p-1 w-16 hover:opacity-75 transition duration-300 text-white rounded-md'>Login</button>

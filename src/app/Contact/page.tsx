@@ -62,7 +62,7 @@ export default function ContactPage() {
           <input type="text" placeholder="Name" className="p-2 border rounded" />
           <input type="email" placeholder="Email" className="p-2 border rounded" />
           <textarea placeholder="Message" className="p-2 border rounded"></textarea>
-          <button className="bg-blue-600 text-white p-2 rounded hover:opacity-80">Send</button>
+          <button className="bg-fuchsia-700 text-white p-2 rounded hover:opacity-80">Send</button>
     </form>
   </div>
     </div>
