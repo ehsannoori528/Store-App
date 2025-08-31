@@ -1,18 +1,13 @@
-import React from 'react'
-
-const MyProducts = ({params}: {
-
+interface PageProps {
   params: {
-    productid: string
-  }
+    productid: string;
+  };
+}
 
-} ) => {
+export default function ProductPage({ params }: PageProps) {
   return (
-
     <div>
-        {params.productid}
+      <h1>Product ID: {params.productid}</h1>
     </div>
-
   );
 }
-export default MyProducts;
