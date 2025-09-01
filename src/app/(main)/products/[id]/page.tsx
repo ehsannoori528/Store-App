@@ -5,7 +5,7 @@ import { GetNowButtonProps } from "@/components/button";
 
 interface productProps  {
   params: Promise<{id : string}>;
-  searchParams: Promise<{id : string}>;
+  searchParams: Promise<{}>;
 
 }
 async function ProductPage(  {params} : productProps) {
