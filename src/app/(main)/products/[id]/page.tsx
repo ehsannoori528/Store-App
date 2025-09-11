@@ -30,7 +30,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   
 }
 const baseUrl = getBaseUrl();
-  const res = await fetch(`${baseUrl}/api/products/${(await params).id}`, {
+  const res = await fetch(`${baseUrl}/api/products/${id}`, {
     cache: "no-store",
   });
 
@@ -38,7 +38,7 @@ const baseUrl = getBaseUrl();
     return <p>محصول یافت نشد</p>;
   }
 
-  const product = (await res.json()) as GetNowButtonProps;
+  const product = (await res.json());
 
   return (
     <div className="max-w-2xl min-h-screen mx-auto p-4 mt-20">
