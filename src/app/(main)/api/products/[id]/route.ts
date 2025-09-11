@@ -1,4 +1,3 @@
-// src/app/(main)/api/products/[id]/route.ts
 import { NextRequest, NextResponse } from "next/server";
 
 interface Product {
@@ -19,8 +18,9 @@ const data: Product[] = [
   { id: "8", name: "Super Case", price: 800, image: "/image9.png" }
 ];
 
-export async function GET(req: NextRequest, context: any) {
-  // گرفتن id از path param
+type Params = { params: { id: string } };
+
+export async function GET(req: NextRequest, context: Params) {
   const { id } = context.params;
 
   const product = data.find((p) => p.id === id);
