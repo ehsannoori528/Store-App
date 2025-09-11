@@ -35,7 +35,7 @@ const baseUrl = getBaseUrl();
   });
 
   if (!res.ok) {
-    return <p>محصول یافت نشد</p>;
+    return <p> محصولات ما</p>;
   }
 
   const product = (await res.json());
