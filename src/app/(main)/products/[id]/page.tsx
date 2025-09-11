@@ -11,7 +11,7 @@ interface Product {
 
 interface ProductPageProps {
 params: Promise<{id : string}>;
-searchParams: Promise<{}>;
+
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
