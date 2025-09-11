@@ -10,11 +10,12 @@ interface Product {
 }
 
 interface ProductPageProps {
-  params: { id: string };
+params: Promise<{id : string}>;
+searchParams: Promise<{}>;
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
-    const {id} = params;
+    const {id} = await params;
 
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
