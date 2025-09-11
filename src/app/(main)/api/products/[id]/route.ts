@@ -18,10 +18,10 @@ const data: Product[] = [
   { id: "8", name: "Super Case", price: 800, image: "/image9.png" }
 ];
 
-type Params = { params: { id: string } };
-
-export async function GET(req: NextRequest, context: Params) {
-  const { id } = context.params;
+export async function GET(req: NextRequest) {
+  // گرفتن id از URL path
+  const segments = req.nextUrl.pathname.split("/");
+  const id = segments[segments.length - 1]; // آخرین segment همان [id] است
 
   const product = data.find((p) => p.id === id);
 
