@@ -17,9 +17,20 @@ params: Promise<{id : string}>;
 export default async function ProductPage({ params }: ProductPageProps) {
     const {id} = await params;
 
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+    function getBaseUrl() {
+  if (process.env.NEXT_PUBLIC_BASE_URL) {
+    return process.env.NEXT_PUBLIC_BASE_URL; // اگر دستی ست شده
+  }
 
-  const res = await fetch(`${baseUrl}/api/products/${id}`, {
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`; // دامنه‌ی خودکار Vercel
+  }
+
+  return "http://localhost:3000"; // حالت لوکال
+  
+}
+const baseUrl = getBaseUrl();
+  const res = await fetch(`${baseUrl}/api/products/${(await params).id}`, {
     cache: "no-store",
   });
 
