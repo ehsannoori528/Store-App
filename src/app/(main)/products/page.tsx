@@ -1,41 +1,41 @@
+// /app/products/page.tsx
+"use client";
 
-
-import Image from "next/image";
-import GetNowButton, { GetNowButtonProps } from '@/components/button';
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
-
-
- async function Products() {
-
-     const result = await fetch("http://localhost:3004/products");
-     const  data = (await result.json()) as GetNowButtonProps[];
-
-     
-  return (
-       <div className="flex flex-col items-center w-full mt-8">
-         
-      <h1 className="text-white text-3xl mb-6">Populer Gift Collections</h1> 
-   
-      <div className="grid grid-cols-4 justify-center gap-6">
-     {data.map(item => (
-      <Link key={item.id} href={`/products/${item.id}`}>
-          <div className="bg-blue-100 pb-13 rounded-xl inline-block">
-
-            <Image className="h-40 w-auto object-cover rounded-xl transition-transform duration-300
-             hover:scale-108 hover:opacity-85" src={item.image} alt="product1" width={280} height={150} />  
-            <span className='relative top-2 flex justify-center items-center'>{item.title}</span>
-            <div className="relative top-10 ml-2 flex items-end gap-9">
-            <GetNowButton {...item}/>
-            <span>{item.price} $</span>
-            </div> 
-            
-            </div>
-            </Link>
-            ))}
-</div>
-          </div>
-       
-  )
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
 }
-export default Products;
+
+export default function Products() {
+  const [data, setData] = useState<Product[]>([]);
+
+  useEffect(() => {
+    fetch("/api/products")
+      .then(res => res.json())
+      .then(products => setData(products))
+      .catch(err => console.error(err));
+  }, []);
+
+  return (
+    <div className="flex flex-col items-center w-full mt-8">
+      <h1 className="text-white text-3xl mb-6">Populer Gift Collections</h1>
+      {data.length === 0 && <p>در حال بارگذاری...</p>}
+      <div className="grid grid-cols-4 gap-6 ">
+        {data.map(item => (
+          <Link key={item.id} href={`/products/${item.id}`}>
+            <div className="bg-blue-100 p-4 rounded-3xl cursor-pointer hover:scale-105 transition-transform duration-300">
+              <img src={item.image} alt={item.name} className="w-full h-40 object-cover rounded-xl hover:opacity-85" />
+              <h2 className="mt-2 font-semibold">{item.name}</h2>
+              <p className="text-lg">{item.price} $</p>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
