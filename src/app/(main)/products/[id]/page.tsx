@@ -2,6 +2,13 @@
 import { GetNowButtonProps } from "@/components/button";
 import Image from "next/image";
 
+interface Product {
+  id: string;
+  name: string;
+  price: number;
+  image: string;
+}
+
 interface ProductPageProps {
   params: { id: string };
 }
