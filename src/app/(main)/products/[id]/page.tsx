@@ -30,7 +30,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   
 }
 const baseUrl = getBaseUrl();
-  const res = await fetch(`${baseUrl}/api/products/${id}`, {
+  const res = await fetch(`${baseUrl}/api/products/${(await params).id}`, {
     cache: "no-store",
   });
 
